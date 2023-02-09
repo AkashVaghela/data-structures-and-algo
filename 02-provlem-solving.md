@@ -88,3 +88,21 @@ code
 [✅]Space time tradeoffs: Hastables usually solve this a lot of the times. You use more space, but you can get a time optimization to the process. In programming, you often times can use up a little bit more space to get faster time
 
 _And always remember:_ Communicate your thought process as much as possible. Don’t worry about finishing it fast. Every part of the interview matters.
+
+# Must know DS:
+
+arrays
+stacks
+queues
+linked list
+tress
+tries
+graphs
+hash tables
+
+# Must know Algos.:
+
+sorting
+dynamic programming
+BFS + DFS (searching)
+recursion
