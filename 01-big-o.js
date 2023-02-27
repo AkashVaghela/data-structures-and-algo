@@ -18,7 +18,7 @@ const nemo = ['dory', 'bruce', 'marlin', 'nemo', 'gill', 'bloat', 'nigel'];
 const largeArray = new Array(100).fill('nemo');
 
 function findNemo(array) {
-  //   let t0 = performance.now();
+  let t0 = performance.now();
   for (let i = 0; i < array.length; i++) {
     console.log('RUNNING');
     if (array[i] === 'nemo') {
@@ -26,10 +26,11 @@ function findNemo(array) {
       break;
     }
   }
-  //   let t1 = performance.now();
-  //   console.log(`Function took ${t1 - t0} milliseconds to fine Nemo.`);
+  let t1 = performance.now();
+  console.log(`Function took ${t1 - t0} milliseconds to fine Nemo.`);
 }
 
+findNemo(nemo); // big O of this function is O(100) which is linear time O(n).
 findNemo(largeArray); // big O of this function is O(100) which is linear time O(n).
 
 // **********

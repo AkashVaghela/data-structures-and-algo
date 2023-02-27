@@ -7,7 +7,7 @@ unordered maps
 dictionary (in python)
 objects
 
-- In JS objects are similar to hash tables.
+- In JS hash tables are called Objects.
 - Hash function stores a key-value pair and points to it's memory address.
 
 # Hash function:
