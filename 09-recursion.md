@@ -33,3 +33,10 @@ every time you are using a tree or converting something into a tree, consider re
 3. the solution of each subproblem can be combined to solve the problem at hand
 
 divide and conqure using recursion
+
+# use cases of recursion
+
+- merge sort
+- quick sort
+- tree traversal
+- graph traversal
