@@ -57,6 +57,91 @@ class BinarySearchTree {
 
   // implement later
   remove(value) {}
+
+  // BFS
+  breathFirstSearch() {
+    let currentNode = this.root;
+    const list = [];
+    const queue = [];
+    queue.push(currentNode);
+
+    while (queue.length > 0) {
+      currentNode = queue.shift();
+      list.push(currentNode);
+
+      if (currentNode.left) {
+        queue.push(currentNode.left);
+      }
+      if (currentNode.right) {
+        queue.push(currentNode.right);
+      }
+    }
+
+    return list;
+  }
+
+  breathFirstSearchRecursive(queue, list) {
+    if (!queue.length) {
+      return list;
+    }
+
+    let currentNode = queue.shift();
+    list.push(currentNode.value);
+
+    if (currentNode.left) {
+      queue.push(currentNode.left);
+    }
+    if (currentNode.right) {
+      queue.push(currentNode.right);
+    }
+
+    return this.breathFirstSearch(queue, list);
+  }
+
+  DFSInOrder() {
+    return traverseInOrder(this.root, []);
+  }
+
+  DFSPreOrder() {
+    return traversePreOrder(this.root, []);
+  }
+
+  DFSPostOrder() {
+    return traversePostOrder(this.root, []);
+  }
+}
+
+function traverseInOrder(node, list) {
+  if (node.left) {
+    traverseInOrder(node.left, list);
+  }
+  list.push(node.value);
+  if (node.right) {
+    traverseInOrder(node.right, list);
+  }
+  return list;
+}
+
+function traversePreOrder(node, list) {
+  list.push(node.value);
+  if (node.left) {
+    traverseInOrder(node.left, list);
+  }
+  if (node.right) {
+    traverseInOrder(node.right, list);
+  }
+  return list;
+}
+
+function traversePostOrder(node, list) {
+  if (node.left) {
+    traverseInOrder(node.left, list);
+  }
+  if (node.right) {
+    traverseInOrder(node.right, list);
+  }
+  list.push(node.value);
+  return list;
 }
 
 const tree = new BinarySearchTree();
@@ -67,11 +152,22 @@ tree.insert(6);
 tree.insert(15);
 tree.insert(20);
 tree.insert(170);
+
+// BFS
+tree.breathFirstSearch();
+tree.breathFirstSearchRecursive([tree.root], []);
+
+// DFS
+tree.DFSInOrder();
+tree.DFSPreOrder();
+tree.DFSPostOrder();
+
 console.log(JSON.stringify(traverse(tree.root)));
 console.log(tree.lookup(4));
+
 //         9
 //   4           20
-//1     6    15      170
+// 1     6    15      170
 
 function traverse(node) {
   const tree = {
